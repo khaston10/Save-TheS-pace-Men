@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: fc083742b970aff45ba569cfefcda8a6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8259654050442488057
+    second: Boat
+  - first:
+      213: -4490391407209573041
+    second: Bush1
+  - first:
+      213: 7958499148628485164
+    second: Bush2
+  - first:
+      213: 3211894349123239784
+    second: Bush3
+  - first:
+      213: -995352451665346338
+    second: Bush4
+  - first:
+      213: 3516093912500424626
+    second: ColorScheme
+  - first:
+      213: 8203789301291206724
+    second: Dragonfly
+  - first:
+      213: -5470569134171372315
+    second: Ench_lights
+  - first:
+      213: -8715342535304859532
+    second: Flower1
+  - first:
+      213: 1759239222701327242
+    second: Flower2
+  - first:
+      213: -689184671258673193
+    second: Flower3
+  - first:
+      213: 2421705148844926927
+    second: Flower4
+  - first:
+      213: 840688925036654940
+    second: GlowingRock1
+  - first:
+      213: -2599405150797466832
+    second: GlowingRock2
+  - first:
+      213: 5009359189066193361
+    second: Lights
+  - first:
+      213: -8132324268466374706
+    second: Mushroom1
+  - first:
+      213: 4849709588804342456
+    second: Mushroom2
+  - first:
+      213: 3370695734159096267
+    second: Mushroom3
+  - first:
+      213: -3571014368663144775
+    second: Mushroom4
+  - first:
+      213: 6606960039350757448
+    second: Rock1
+  - first:
+      213: -8671485487866909183
+    second: Rock2
+  - first:
+      213: 3914950903657309924
+    second: Rock3
+  - first:
+      213: -3964850392951795730
+    second: Rock4
+  - first:
+      213: -1256374901807525767
+    second: Rock5
+  - first:
+      213: 6595675672252430396
+    second: Rock6
+  - first:
+      213: -1254736923888025953
+    second: SmallFlower1
+  - first:
+      213: -2703058175612564415
+    second: SmallFlower2
+  - first:
+      213: 2289152439265563736
+    second: SmallFlower3
+  - first:
+      213: 6675953555725341536
+    second: SmallGlowingRock1
+  - first:
+      213: 1204188595290937717
+    second: SmallGlowingRock2
+  - first:
+      213: 3062063702031087776
+    second: SmallGlowingRock3
+  - first:
+      213: 6028244891409130325
+    second: Tree1
+  - first:
+      213: -2719259327600235981
+    second: Tree2
+  - first:
+      213: -1273785891664065480
+    second: Vine1
+  - first:
+      213: -3040714509366507125
+    second: Vine2
+  - first:
+      213: 8892003813228760366
+    second: Vine3
+  - first:
+      213: 5600578968554663028
+    second: Vine4
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boat
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 3058
+        width: 2081
+        height: 874
+      alignment: 9
+      pivot: {x: 0.5060067, y: 0.49885583}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70752c31760df5d80800000000000000
+      internalID: -8259654050442488057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush1
+      rect:
+        serializedVersion: 2
+        x: 5247
+        y: 2011
+        width: 276
+        height: 415
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f459ec66ecceea1c0800000000000000
+      internalID: -4490391407209573041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush2
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 2198
+        width: 1322
+        height: 860
+      alignment: 9
+      pivot: {x: 0.5200454, y: 0.4784884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c24ef3b4fc4427e60800000000000000
+      internalID: 7958499148628485164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush3
+      rect:
+        serializedVersion: 2
+        x: 3876
+        y: 1197
+        width: 887
+        height: 1109
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52750224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f3397a4e0f29c20800000000000000
+      internalID: 3211894349123239784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush4
+      rect:
+        serializedVersion: 2
+        x: 2810
+        y: 256
+        width: 1291
+        height: 857
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed04c24083ccf22f0800000000000000
+      internalID: -995352451665346338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ColorScheme
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 1536
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf408bc8ccabc030800000000000000
+      internalID: 3516093912500424626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragonfly
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 598
+        width: 1216
+        height: 1504
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50797874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448cc9b67e6b9d170800000000000000
+      internalID: 8203789301291206724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ench_lights
+      rect:
+        serializedVersion: 2
+        x: 5523
+        y: 2055
+        width: 129
+        height: 359
+      alignment: 9
+      pivot: {x: 0.50775194, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4cf765b52a414b0800000000000000
+      internalID: -5470569134171372315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower1
+      rect:
+        serializedVersion: 2
+        x: 4486
+        y: 2855
+        width: 1070
+        height: 1077
+      alignment: 9
+      pivot: {x: 0.50280374, y: 0.46935934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4703d47d322ec0780800000000000000
+      internalID: -8715342535304859532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower2
+      rect:
+        serializedVersion: 2
+        x: 3727
+        y: 2306
+        width: 647
+        height: 752
+      alignment: 9
+      pivot: {x: 0.51081914, y: 0.4800532}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a830c0090c21a6810800000000000000
+      internalID: 1759239222701327242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower3
+      rect:
+        serializedVersion: 2
+        x: 2810
+        y: 1113
+        width: 1066
+        height: 1085
+      alignment: 9
+      pivot: {x: 0.5192308, y: 0.5059908}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df7bf461368f66f0800000000000000
+      internalID: -689184671258673193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower4
+      rect:
+        serializedVersion: 2
+        x: 4542
+        y: 111
+        width: 407
+        height: 811
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7e2ab8000ab9120800000000000000
+      internalID: 2421705148844926927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlowingRock1
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 274
+        width: 528
+        height: 324
+      alignment: 9
+      pivot: {x: 0.5047349, y: 0.49691358}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c513a678f1abaab00800000000000000
+      internalID: 840688925036654940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlowingRock2
+      rect:
+        serializedVersion: 2
+        x: 5247
+        y: 826
+        width: 437
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5034325, y: 0.49822694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 033756f99ce0debd0800000000000000
+      internalID: -2599405150797466832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lights
+      rect:
+        serializedVersion: 2
+        x: 4949
+        y: 82
+        width: 259
+        height: 717
+      alignment: 9
+      pivot: {x: 0.4980695, y: 0.49930266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d911a844a1d48540800000000000000
+      internalID: 5009359189066193361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom1
+      rect:
+        serializedVersion: 2
+        x: 5147
+        y: 2426
+        width: 386
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec7f5cb2a2e242f80800000000000000
+      internalID: -8132324268466374706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom2
+      rect:
+        serializedVersion: 2
+        x: 5247
+        y: 1108
+        width: 378
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b21d781d21ad4340800000000000000
+      internalID: 4849709588804342456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom3
+      rect:
+        serializedVersion: 2
+        x: 5208
+        y: 444
+        width: 211
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc93a7859ed17ce20800000000000000
+      internalID: 3370695734159096267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom4
+      rect:
+        serializedVersion: 2
+        x: 5247
+        y: 1537
+        width: 315
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6740c0a55317ec0800000000000000
+      internalID: -3571014368663144775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock1
+      rect:
+        serializedVersion: 2
+        x: 5208
+        y: 189
+        width: 342
+        height: 255
+      alignment: 9
+      pivot: {x: 0.5073099, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848e3be8623a0bb50800000000000000
+      internalID: 6606960039350757448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock2
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 49
+        width: 366
+        height: 225
+      alignment: 9
+      pivot: {x: 0.50136614, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10eecbc64e1b8a780800000000000000
+      internalID: -8671485487866909183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock3
+      rect:
+        serializedVersion: 2
+        x: 3213
+        y: 4
+        width: 353
+        height: 252
+      alignment: 9
+      pivot: {x: 0.50708216, y: 0.49801588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e6a695ca13b45630800000000000000
+      internalID: 3914950903657309924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock4
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 8
+        width: 362
+        height: 248
+      alignment: 9
+      pivot: {x: 0.49585634, y: 0.49798387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef4a8403950af8c0800000000000000
+      internalID: -3964850392951795730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock5
+      rect:
+        serializedVersion: 2
+        x: 3566
+        y: 28
+        width: 355
+        height: 228
+      alignment: 9
+      pivot: {x: 0.5070422, y: 0.49561402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970db01fea5709ee0800000000000000
+      internalID: -1256374901807525767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock6
+      rect:
+        serializedVersion: 2
+        x: 2858
+        y: 4
+        width: 355
+        height: 252
+      alignment: 9
+      pivot: {x: 0.50985914, y: 0.4861111}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38ba4a141c888b50800000000000000
+      internalID: 6595675672252430396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFlower1
+      rect:
+        serializedVersion: 2
+        x: 5419
+        y: 514
+        width: 289
+        height: 312
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e76156a67469ee0800000000000000
+      internalID: -1254736923888025953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFlower2
+      rect:
+        serializedVersion: 2
+        x: 4374
+        y: 2311
+        width: 773
+        height: 544
+      alignment: 9
+      pivot: {x: 0.5181112, y: 0.49816176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14cc56329eecc7ad0800000000000000
+      internalID: -2703058175612564415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFlower3
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 204
+        width: 536
+        height: 394
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854942bd304b4cf10800000000000000
+      internalID: 2289152439265563736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallGlowingRock1
+      rect:
+        serializedVersion: 2
+        x: 4542
+        y: 1070
+        width: 176
+        height: 127
+      alignment: 9
+      pivot: {x: 0.50284094, y: 0.503937}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063d3026360c5ac50800000000000000
+      internalID: 6675953555725341536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallGlowingRock3
+      rect:
+        serializedVersion: 2
+        x: 3727
+        y: 2203
+        width: 92
+        height: 103
+      alignment: 9
+      pivot: {x: 0.51086956, y: 0.5145631}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a83e27a6b2ae7a20800000000000000
+      internalID: 3062063702031087776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2102
+        width: 2405
+        height: 1830
+      alignment: 9
+      pivot: {x: 0.4933472, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 553218b2ac0a8a350800000000000000
+      internalID: 6028244891409130325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 259
+        width: 1594
+        height: 1839
+      alignment: 9
+      pivot: {x: 0.5028231, y: 0.5002713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a683e7c00434ad0800000000000000
+      internalID: -2719259327600235981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vine1
+      rect:
+        serializedVersion: 2
+        x: 4763
+        y: 922
+        width: 303
+        height: 1389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c8577fa7a925ee0800000000000000
+      internalID: -1273785891664065480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vine2
+      rect:
+        serializedVersion: 2
+        x: 5556
+        y: 2414
+        width: 174
+        height: 1518
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8945dd93463dc5d0800000000000000
+      internalID: -3040714509366507125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vine3
+      rect:
+        serializedVersion: 2
+        x: 5066
+        y: 799
+        width: 181
+        height: 1512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d4be43b5eb66b70800000000000000
+      internalID: 8892003813228760366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vine4
+      rect:
+        serializedVersion: 2
+        x: 4101
+        y: 140
+        width: 441
+        height: 1057
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c693516e049bd40800000000000000
+      internalID: 5600578968554663028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
