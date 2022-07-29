@@ -11,9 +11,7 @@ public class AstronautController : MonoBehaviour
     public string[] idleAnimationClipNames = new string[] { "idle_up", "idle_side", "idle_down", "run_side"};
     private int animIndex;
 
-    private float airAmount; // This is a timer, amount of air left in seconds.
-    private float airAmountMax = 60;
-    private float airAmountMin = 30;
+    public float airAmount; // This is a timer, amount of air left in seconds.
     public Slider airLeftSlider;
     private bool panicked = false;
 
@@ -58,9 +56,6 @@ public class AstronautController : MonoBehaviour
         // Pick a random idle animation.
         int animIndex = Random.Range(0, 3);
         anim.Play(idleAnimationClipNames[animIndex]);
-
-        // Pick a random amount of tile.
-        airAmount = Random.Range(airAmountMin, airAmountMax);
     }
 
     void UpdateAstronaut()
@@ -68,7 +63,7 @@ public class AstronautController : MonoBehaviour
         airAmount -= Time.deltaTime;
         airLeftSlider.value = airAmount;
 
-        if (airAmount < 10 && !panicked)
+        if (airAmount < 10 && !panicked && !runTowardsShip)
         {
             panicked = true;
             anim.Play("hit1_down");

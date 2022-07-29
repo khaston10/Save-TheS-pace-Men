@@ -462,6 +462,7 @@ MonoBehaviour:
   - idle_side
   - idle_down
   - run_side
+  airAmount: 10
   airLeftSlider: {fileID: 3945299058572435060}
   gameIsStarted: 0
   runTowardsShip: 0
