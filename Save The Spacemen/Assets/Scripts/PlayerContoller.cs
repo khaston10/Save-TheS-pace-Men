@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerContoller : MonoBehaviour
 {
     #region Variables
-    // Fields that need to be populated for each scene.
+
+    #region Misc
     public GameObject mainContoller;
     private Rigidbody2D rb2d;
     private float moveForceX;
@@ -14,30 +15,39 @@ public class PlayerContoller : MonoBehaviour
     private Vector2 moveDirection;
     private float moveHorizontal;
     private float moveVertical;
+    public bool gameIsStarted = false;
+    #endregion
 
+    #region Ship Variables
     public Sprite[] shipSprites;
     private SpriteRenderer spriteRend;
     public float shipHealth;
     public float shipFuel;
-    public int shipType; // 0 - Red Ship, 1 - Grey Ship, 2 - Alien Ship
-    private float[] ShipMaxHealth = new float[] {10, 20, 30};
-    private float[] ShipMaxFuel = new float[] {100, 120, 140};
-    private float[] ShipMinVelForDmg = new float[] { 3, 2, 2 };
     private float minVelocityToTakeDamage;
+    private float damageValue;
+    private float shipWidth;
+    public int bombsLeft;
+    public GameObject bombPrefab;
+    #endregion
 
+    #region UI
     public Slider fuelSlider;
     public Slider healthSlider;
-
-    public bool gameIsStarted = false;
+    #endregion
 
     #region Animations
     public GameObject exp01;
     public GameObject flame;
+    public GameObject flameR;
+    public GameObject flameL;
+    public GameObject exhaust;
     #endregion
 
     #region Sound
+    public AudioSource burnerAudioSource;
     [SerializeField] private AudioClip shipTakesDamage;
     [SerializeField] private AudioClip ShipExplodes;
+    [SerializeField] private AudioClip doorCloses;
     #endregion
 
     #endregion
@@ -51,13 +61,15 @@ public class PlayerContoller : MonoBehaviour
         moveForceX = 5f;
 
         // Set the ship attributes.
-        shipType = 0;
-        shipFuel = ShipMaxFuel[0];
-        shipHealth = ShipMaxHealth[0];
-        minVelocityToTakeDamage = ShipMinVelForDmg[0];
+        shipFuel = 100f;
+        shipHealth = 100f;
+        minVelocityToTakeDamage = 3f;
+        damageValue = 20f;
         UpdateUISliders();
-
         flame.SetActive(false);
+        flameR.SetActive(false);
+        flameL.SetActive(false);
+        shipWidth = .4f;
     }
 
     // Update is called once per frame
@@ -68,41 +80,99 @@ public class PlayerContoller : MonoBehaviour
 
     void FixedUpdate()
     {
+        #region Add force to ship and toggle fuel consumption
         if (moveVertical > 0.1f || moveVertical < -.1f || moveHorizontal > 0.1f || moveHorizontal < -.1f)
         {
             rb2d.AddForce(new Vector2(moveDirection.x * moveForceX, moveDirection.y *moveForceY), ForceMode2D.Force);
 
             ConsumeFuel();
-
-            // Set the flame to active.
-            if (!flame.gameObject.activeSelf) flame.SetActive(true);
+            ToggleBurnerSound(true); 
         }
 
         else
         {
-            if(flame.gameObject.activeSelf) flame.SetActive(false);
+            ToggleBurnerSound(false);
+        }
+        #endregion
+
+        #region Down Flame
+        if (moveVertical > 0.1f)
+        {
+            // Set the  Down flame to active.
+            if (!flame.gameObject.activeSelf)
+            {
+                flame.SetActive(true);
+            }
         }
 
+        else
+        {
+            if (flame.gameObject.activeSelf)
+            {
+                flame.SetActive(false);
+            }
+        }
+        #endregion
+
+        #region Right Flame
+        if (moveHorizontal < -0.1f)
+        {
+            // Set the  Right flame to active.
+            if (!flameR.gameObject.activeSelf)
+            {
+                flameR.SetActive(true);
+            }
+        }
+
+        else
+        {
+            if (flameR.gameObject.activeSelf)
+            {
+                flameR.SetActive(false);
+            }
+        }
+        #endregion
+
+        #region Left Flame
+        if (moveHorizontal > 0.1f)
+        {
+            // Set the  Left flame to active.
+            if (!flameL.gameObject.activeSelf)
+            {
+                flameL.SetActive(true);
+            }
+        }
+
+        else
+        {
+            if (flameL.gameObject.activeSelf)
+            {
+                flameL.SetActive(false);
+            }
+        }
+        #endregion
+
+        #region Exhaust
+        // The exhaust is controlled by the Collision COntroller script, but it needs to be turned off when the ship is at rest.
+        //if (Mathf.Abs(rb2d.velocity.y) < 0.01f && exhaust.activeInHierarchy) exhaust.SetActive(false);
+        #endregion
+        
     }
 
-    #region Load/ Save Functions
-
-
-
-    #endregion
-
     #region Movement Functions
-
     void GetPlayerInputs()
     {
-        
         if (gameIsStarted)
         {
             moveHorizontal = Input.GetAxisRaw("Horizontal");
             moveVertical = Input.GetAxisRaw("Vertical");
             moveDirection = new Vector2(moveHorizontal, moveVertical); // This is a vector where the x, and y components can range from -1 to 1; 
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ReleaseBomb();
+            }
         }
- 
     }
 
     void ConsumeFuel()
@@ -110,7 +180,6 @@ public class PlayerContoller : MonoBehaviour
         shipFuel -= Time.deltaTime;
         UpdateUISliders();
     }
-
     #endregion
 
     #region Collisions
@@ -119,8 +188,19 @@ public class PlayerContoller : MonoBehaviour
     {
         if (col.transform.tag == "astronauts")
         {
-            Destroy(col.transform.parent.gameObject);
-            mainContoller.GetComponent<MainContoller>().AstroSavedOrDead(true);
+            // If the ship lands on the astronaut, then the astronaut dies.
+            if (Mathf.Abs(this.transform.position.x - col.transform.position.x) < shipWidth)
+            {
+                col.gameObject.GetComponentInChildren<AstronautController>().CrushAstro();
+            }
+
+            else
+            {
+                Destroy(col.transform.parent.gameObject);
+                mainContoller.GetComponent<MainContoller>().AstroSavedOrDead(true);
+                SoundManager.Instance.PlaySound(doorCloses);
+            }
+            
         }
 
         else if(col.transform.tag == "TopWall")
@@ -128,26 +208,45 @@ public class PlayerContoller : MonoBehaviour
             mainContoller.GetComponent<MainContoller>().CheckToSeeIfLevelIsComplete();
         }
 
-
-
         else
         {
-            if (Mathf.Abs(col.relativeVelocity.y) > minVelocityToTakeDamage)
-            {
-                shipHealth -= 10;
-                UpdateUISliders();
-
-                if (shipHealth < 0)
-                {
-                    StartCoroutine("ShipExplosion");
-
-                    PlayShipExplodesAudio();
-                }
-
-                else PlayShipTakesDamgeAudio();
-            }
+            DamgeShipOnFall(col.relativeVelocity.y);  
         }
         
+    }
+
+    public void DamgeShipOnFall(float vel)
+    {
+        if (vel > minVelocityToTakeDamage)
+        {
+            shipHealth -= damageValue;
+            UpdateUISliders();
+
+            if (shipHealth < 0)
+            {
+                StartCoroutine("ShipExplosion");
+
+                PlayShipExplodesAudio();
+            }
+
+            else PlayShipTakesDamgeAudio();
+        }
+    }
+
+    public void DamgeShip(float dam)
+    {
+        shipHealth -= dam;
+        UpdateUISliders();
+
+        if (shipHealth < 0)
+        {
+            StartCoroutine("ShipExplosion");
+
+            PlayShipExplodesAudio();
+        }
+
+        else PlayShipTakesDamgeAudio();
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -175,14 +274,14 @@ public class PlayerContoller : MonoBehaviour
             col.transform.GetComponentInChildren<AstronautController>().anim.Play(col.transform.GetComponentInChildren<AstronautController>().idleAnimationClipNames[3]);
 
             // Pick the correct run animation.
-            if (this.transform.position.x  - col.transform.position.x> 0)
+            if (this.transform.position.x  - col.transform.GetChild(0).transform.position.x > 0)
             {
-                col.transform.GetComponentInChildren<AstronautController>().renderer.flipX = true;
+                col.transform.GetComponentInChildren<AstronautController>()._renderer.flipX = true;
             }
 
             else
             {
-                col.transform.GetComponentInChildren<AstronautController>().renderer.flipX = false;
+                col.transform.GetComponentInChildren<AstronautController>()._renderer.flipX = false;
             }
         }
 
@@ -190,6 +289,7 @@ public class PlayerContoller : MonoBehaviour
         {
             col.transform.GetComponentInChildren<AstronautController>().runTowardsShip = false;
             col.transform.GetComponentInChildren<AstronautController>().target = null;
+            col.transform.GetComponentInChildren<AstronautController>().SetVelocity(Vector2.zero);
 
             // Pick a random idle animation.
             int animIndex = Random.Range(0, 3);
@@ -202,7 +302,7 @@ public class PlayerContoller : MonoBehaviour
 
     IEnumerator ShipExplosion()
     {
-        spriteRend.sprite = shipSprites[6];
+        spriteRend.sprite = shipSprites[2];
         Instantiate(exp01, this.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(3);
         mainContoller.GetComponent<MainContoller>().EndGame();
@@ -213,7 +313,7 @@ public class PlayerContoller : MonoBehaviour
 
     #region UI Functions
 
-    void UpdateUISliders()
+    public void UpdateUISliders()
     {
         fuelSlider.value = shipFuel;
         healthSlider.value = shipHealth;
@@ -232,6 +332,27 @@ public class PlayerContoller : MonoBehaviour
     public void PlayShipExplodesAudio()
     {
         SoundManager.Instance.PlaySound(ShipExplodes);
+    }
+
+    public void ToggleBurnerSound(bool on)
+    {
+        if (on) burnerAudioSource.volume = 1;
+        else burnerAudioSource.volume = 0;
+
+    }
+
+    #endregion
+
+    #region Bombs
+
+    public void ReleaseBomb()
+    {
+        if (bombsLeft > 0)
+        {
+            Vector3 releasePosition = new Vector3(this.transform.position.x + .1f, this.transform.position.y - .4f, 0f);
+            Instantiate(bombPrefab, releasePosition, Quaternion.identity);
+            bombsLeft -= 1;
+        }
     }
 
     #endregion

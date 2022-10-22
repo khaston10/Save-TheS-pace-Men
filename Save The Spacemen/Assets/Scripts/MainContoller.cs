@@ -44,7 +44,6 @@ public class MainContoller : MonoBehaviour
     void LoadGameData()
     {
         StreamReader reader = new StreamReader(savePath);
-        //Print the text from the file
         string text = reader.ReadToEnd();
         print(text);
         for (int i = 0; i < scores.Length; i++)
@@ -121,6 +120,7 @@ public class MainContoller : MonoBehaviour
             SaveGameData();
             SceneManager.LoadScene(2);
         }
+        
     }
 
     public void EndGame()

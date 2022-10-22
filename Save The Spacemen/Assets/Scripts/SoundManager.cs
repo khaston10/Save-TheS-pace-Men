@@ -22,6 +22,16 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public float GetMusicVol()
+    {
+        return _musicSource.volume;
+    }
+
+    public float GetSFXVol()
+    {
+        return _fxSource.volume;
+    }
+
     public void PlaySound(AudioClip clip)
     {
         _fxSource.PlayOneShot(clip);
@@ -30,5 +40,19 @@ public class SoundManager : MonoBehaviour
     public void ChangeMasterVol(float volume)
     {
         AudioListener.volume = volume;
+    }
+
+    public void ChangeMusicVol(float vol)
+    {
+        if (vol < 0) vol = 0;
+        else if (vol > 1) vol = 1;
+        _musicSource.volume = vol;
+    }
+
+    public void ChangeSFXVol(float vol)
+    {
+        if (vol < 0) vol = 0;
+        else if (vol > 1) vol = 1;
+        _fxSource.volume = vol;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AstronautController : MonoBehaviour
 {
     public Animator anim;
-    public SpriteRenderer renderer;
+    public SpriteRenderer _renderer;
 
     public string[] idleAnimationClipNames = new string[] { "idle_up", "idle_side", "idle_down", "run_side"};
     private int animIndex;
@@ -21,10 +21,15 @@ public class AstronautController : MonoBehaviour
     #region Movement Variables
     private Rigidbody2D rgb2;
     public bool runTowardsShip = false;
-    private float movementSpeed = .1f;
     public GameObject target;
     private Vector2 velocity;
-    bool flipped = false;
+
+
+    #endregion
+
+    #region Crushed Anims and Sounds
+    public GameObject crushedAstroAnim;
+    [SerializeField] private AudioClip crushAstroClip;
     #endregion
 
     // Start is called before the first frame update
@@ -32,7 +37,7 @@ public class AstronautController : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         rgb2 = gameObject.GetComponent<Rigidbody2D>();
-        renderer = gameObject.GetComponent<SpriteRenderer>();
+        _renderer = gameObject.GetComponent<SpriteRenderer>();
         SetAstoOnStart();
     }
 
@@ -68,16 +73,37 @@ public class AstronautController : MonoBehaviour
             panicked = true;
             anim.Play("hit1_down");
         }
-        if (airAmount < 0) StartCoroutine("KillAstronaut");
+        if (airAmount < 0) KillAstronaut();
         
+    }
+
+    public void SetVelocity(Vector2 vel)
+    {
+        rgb2.velocity = vel.normalized;
     }
 
     void RunTowardsShip()
     {
-        this.transform.Translate(new Vector3(target.transform.position.x * movementSpeed * Time.deltaTime, 0f, 0f), Space.World);
+        velocity = new Vector2(target.transform.position.x - transform.position.x, 0f);
+        SetVelocity(velocity);
+
+        // Stop movement if the astronaut is outside of the bounds of the partents colider.
     }
 
-    IEnumerator KillAstronaut()
+    public void CrushAstro()
+    {
+        Instantiate(crushedAstroAnim, this.transform.position, Quaternion.identity);
+        SoundManager.Instance.PlaySound(crushAstroClip);
+        Destroy(gameObject.transform.parent.gameObject);
+        GameObject.Find("Main Controller").GetComponent<MainContoller>().AstroSavedOrDead(false);
+        
+    }
+
+    public void KillAstronaut()
+    {
+        StartCoroutine("Kill");
+    }
+    IEnumerator Kill()
     {
         // Hide Slider.
         airLeftSlider.gameObject.SetActive(false);
@@ -87,6 +113,9 @@ public class AstronautController : MonoBehaviour
         float lengthOfClip = anim.GetCurrentAnimatorClipInfo(0).GetLength(0);
         yield return new WaitForSeconds(lengthOfClip);
 
-        Destroy(gameObject.transform.parent); 
+        Destroy(gameObject.transform.parent.gameObject);
+
+        GameObject.Find("Main Controller").GetComponent<MainContoller>().AstroSavedOrDead(false);
     }
+
 }

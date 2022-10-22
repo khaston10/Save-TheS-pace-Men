@@ -421,7 +421,7 @@ Rigidbody2D:
   m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  renderer: {fileID: 0}
+  _renderer: {fileID: 0}
   idleAnimationClipNames:
   - idle_up
   - idle_side
@@ -467,6 +467,8 @@ MonoBehaviour:
   gameIsStarted: 0
   runTowardsShip: 0
   target: {fileID: 0}
+  crushedAstroAnim: {fileID: 2141007450392600973, guid: addd34ef3aa7bd8499da7a1055c27b69, type: 3}
+  crushAstroClip: {fileID: 8300000, guid: b2f69b113f88ba94fba6bf8fcb35f0e5, type: 3}
 --- !u!1 &3945299059701175964
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432838362502552599}
   - component: {fileID: 4432838362502552598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AstronautPreFab
   m_TagString: AstronautBase
   m_Icon: {fileID: 0}

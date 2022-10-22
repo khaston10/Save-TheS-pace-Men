@@ -9,14 +9,18 @@ TagManager:
   - FreeLook
   - AstronautBase
   - TopWall
+  - Ground
+  - Exhaust
+  - Destructable
+  - Comet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Exhaust
   - Water
   - UI
-  - 
+  - AstroBase
   - 
   - 
   - 
