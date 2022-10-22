@@ -53,7 +53,8 @@ public class CometMover : MonoBehaviour
     {
         if (col.transform.tag == "Player")
         {
-            print("Hit Player");
+            col.transform.GetComponent<PlayerContoller>().DamgeShip(col.transform.GetComponent<PlayerContoller>().shipHealth + 1);
+            Destroy(this.gameObject);
         }
 
         else Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), col.transform.GetComponent<Collider2D>());

@@ -25,6 +25,7 @@ public class PlayerContoller : MonoBehaviour
     public float shipFuel;
     private float minVelocityToTakeDamage;
     private float damageValue;
+    private bool shipIsAlive;
     private float shipWidth;
     public int bombsLeft;
     public GameObject bombPrefab;
@@ -65,6 +66,7 @@ public class PlayerContoller : MonoBehaviour
         shipHealth = 100f;
         minVelocityToTakeDamage = 3f;
         damageValue = 20f;
+        shipIsAlive = true;
         UpdateUISliders();
         flame.SetActive(false);
         flameR.SetActive(false);
@@ -75,88 +77,90 @@ public class PlayerContoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetPlayerInputs();
+        if (shipIsAlive) GetPlayerInputs();
     }
 
     void FixedUpdate()
     {
-        #region Add force to ship and toggle fuel consumption
-        if (moveVertical > 0.1f || moveVertical < -.1f || moveHorizontal > 0.1f || moveHorizontal < -.1f)
+        if (shipIsAlive)
         {
-            rb2d.AddForce(new Vector2(moveDirection.x * moveForceX, moveDirection.y *moveForceY), ForceMode2D.Force);
-
-            ConsumeFuel();
-            ToggleBurnerSound(true); 
-        }
-
-        else
-        {
-            ToggleBurnerSound(false);
-        }
-        #endregion
-
-        #region Down Flame
-        if (moveVertical > 0.1f)
-        {
-            // Set the  Down flame to active.
-            if (!flame.gameObject.activeSelf)
+            #region Add force to ship and toggle fuel consumption
+            if (moveVertical > 0.1f || moveVertical < -.1f || moveHorizontal > 0.1f || moveHorizontal < -.1f)
             {
-                flame.SetActive(true);
-            }
-        }
+                rb2d.AddForce(new Vector2(moveDirection.x * moveForceX, moveDirection.y * moveForceY), ForceMode2D.Force);
 
-        else
-        {
-            if (flame.gameObject.activeSelf)
+                ConsumeFuel();
+                ToggleBurnerSound(true);
+            }
+
+            else
             {
-                flame.SetActive(false);
+                ToggleBurnerSound(false);
             }
-        }
-        #endregion
+            #endregion
 
-        #region Right Flame
-        if (moveHorizontal < -0.1f)
-        {
-            // Set the  Right flame to active.
-            if (!flameR.gameObject.activeSelf)
+            #region Down Flame
+            if (moveVertical > 0.1f)
             {
-                flameR.SetActive(true);
+                // Set the  Down flame to active.
+                if (!flame.gameObject.activeSelf)
+                {
+                    flame.SetActive(true);
+                }
             }
-        }
 
-        else
-        {
-            if (flameR.gameObject.activeSelf)
+            else
             {
-                flameR.SetActive(false);
+                if (flame.gameObject.activeSelf)
+                {
+                    flame.SetActive(false);
+                }
             }
-        }
-        #endregion
+            #endregion
 
-        #region Left Flame
-        if (moveHorizontal > 0.1f)
-        {
-            // Set the  Left flame to active.
-            if (!flameL.gameObject.activeSelf)
+            #region Right Flame
+            if (moveHorizontal < -0.1f)
             {
-                flameL.SetActive(true);
+                // Set the  Right flame to active.
+                if (!flameR.gameObject.activeSelf)
+                {
+                    flameR.SetActive(true);
+                }
             }
-        }
 
-        else
-        {
-            if (flameL.gameObject.activeSelf)
+            else
             {
-                flameL.SetActive(false);
+                if (flameR.gameObject.activeSelf)
+                {
+                    flameR.SetActive(false);
+                }
             }
-        }
-        #endregion
+            #endregion
 
-        #region Exhaust
-        // The exhaust is controlled by the Collision COntroller script, but it needs to be turned off when the ship is at rest.
-        //if (Mathf.Abs(rb2d.velocity.y) < 0.01f && exhaust.activeInHierarchy) exhaust.SetActive(false);
-        #endregion
-        
+            #region Left Flame
+            if (moveHorizontal > 0.1f)
+            {
+                // Set the  Left flame to active.
+                if (!flameL.gameObject.activeSelf)
+                {
+                    flameL.SetActive(true);
+                }
+            }
+
+            else
+            {
+                if (flameL.gameObject.activeSelf)
+                {
+                    flameL.SetActive(false);
+                }
+            }
+            #endregion
+
+            #region Exhaust
+            // The exhaust is controlled by the Collision COntroller script, but it needs to be turned off when the ship is at rest.
+            //if (Mathf.Abs(rb2d.velocity.y) < 0.01f && exhaust.activeInHierarchy) exhaust.SetActive(false);
+            #endregion
+        }
     }
 
     #region Movement Functions
@@ -217,7 +221,7 @@ public class PlayerContoller : MonoBehaviour
 
     public void DamgeShipOnFall(float vel)
     {
-        if (vel > minVelocityToTakeDamage)
+        if (vel > minVelocityToTakeDamage && shipIsAlive)
         {
             shipHealth -= damageValue;
             UpdateUISliders();
@@ -235,17 +239,21 @@ public class PlayerContoller : MonoBehaviour
 
     public void DamgeShip(float dam)
     {
-        shipHealth -= dam;
-        UpdateUISliders();
-
-        if (shipHealth < 0)
+        if (shipIsAlive)
         {
-            StartCoroutine("ShipExplosion");
+            shipHealth -= dam;
+            UpdateUISliders();
 
-            PlayShipExplodesAudio();
+            if (shipHealth < 0)
+            {
+                StartCoroutine("ShipExplosion");
+
+                shipIsAlive = false;
+                PlayShipExplodesAudio();
+            }
+
+            else PlayShipTakesDamgeAudio();
         }
-
-        else PlayShipTakesDamgeAudio();
 
     }
 
@@ -303,6 +311,9 @@ public class PlayerContoller : MonoBehaviour
     IEnumerator ShipExplosion()
     {
         spriteRend.sprite = shipSprites[2];
+        flame.SetActive(false); // Ensure flame animations are off.
+        flameR.SetActive(false); // Ensure flame animations are off.
+        flameL.SetActive(false); // Ensure flame animations are off.
         Instantiate(exp01, this.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(3);
         mainContoller.GetComponent<MainContoller>().EndGame();
